@@ -85,49 +85,80 @@ body{
   color:#ffe6f0;
 }
 
-/* Pictures & Videos */
-.pictures,.videos{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin:16px auto;
-  width:100%;
-  max-width:360px;
-  align-items:center;
-  justify-content:center;
+/* ------------------------------
+   PICTURES & VIDEOS
+------------------------------ */
+.pictures, .videos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px auto;
+    width: 100%;
+    max-width: 360px;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Picture cards */
-.pictures img{
-  border-radius:18px;
-  width:96%;
-  object-fit:cover;
-  aspect-ratio:9/16;
-  background: rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+/* ------------------------------
+   PICTURE CARDS
+------------------------------ */
+.pictures img {
+    border-radius: 18px;
+    width: 96%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+
+    /* iOS-style frosted glass */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 4px;
+
+    /* subtle floating animation */
+    animation: floatPic 8s ease-in-out infinite alternate;
 }
 
-/* Video cards */
-.video-card{
-  width:100%;
-  border-radius:18px;
-  overflow:hidden;
-  background:rgba(255,255,255,0.04);
-  box-shadow:0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:4px;
-  border:1px solid rgba(255,255,255,0.15);
-}
-.video-card video{
-  border-radius:12px;
-  width:100%;
-  aspect-ratio:9/16;
-  object-fit:cover;
+/* ------------------------------
+   VIDEO CARDS
+------------------------------ */
+.video-card {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    /* subtle floating animation */
+    animation: floatVid 10s ease-in-out infinite alternate;
 }
 
+.video-card video {
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+}
+
+/* ------------------------------
+   FLOATING ANIMATIONS
+------------------------------ */
+@keyframes floatPic {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes floatVid {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+  
 /* Text sections (verse, quote, RSVP) */
 .text-section{
   font-family:'Poppins',sans-serif;
