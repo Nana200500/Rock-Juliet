@@ -15,8 +15,6 @@
   --max-width:980px;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -39,10 +37,11 @@ body{
   inset:0;
   pointer-events:none;
   mix-blend-mode:overlay;
-  background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.12));
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.12));
   z-index:1;
 }
 
+/* Wrap for content */
 .wrap{
   max-width:var(--max-width);
   width:94%;
@@ -59,33 +58,34 @@ body{
   font-size:3rem;
   color:#fff;
   line-height:1.2;
-  text-align:center;
   margin-bottom:8px;
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:18px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow:0 8px 24px rgba(0,0,0,0.25);
-  animation: bounceIn 0.6s ease forwards;
-}
 
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  padding: 12px 18px;
+  display: inline-block;
+
+  /* quick bounce-in animation */
+  animation: bounceIn 0.8s ease forwards;
+}
 @keyframes bounceIn{
   0%{transform:scale(0.5);opacity:0;}
   60%{transform:scale(1.1);opacity:1;}
-  80%{transform:scale(0.95);}
   100%{transform:scale(1);}
 }
+.hbb-text h1 span{display:block;}
 
 .subline{
   font-family:'Poppins',sans-serif;
   font-size:1.2rem;
   font-weight:600;
   margin-bottom:18px;
-  color:#fff;
+  color:#ffe6f0;
 }
 
-/* Pictures */
+/* Pictures & Videos */
 .pictures,.videos{
   display:flex;
   flex-direction:column;
@@ -97,39 +97,30 @@ body{
   justify-content:center;
 }
 
+/* Picture cards */
 .pictures img{
   border-radius:18px;
-  display:block;
   width:96%;
   object-fit:cover;
-  padding:4px;
-  border:1px solid rgba(255,255,255,0.12);
+  aspect-ratio:9/16;
   background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 8px 24px rgba(0,0,0,0.25);
-  animation: floatPic 8s ease-in-out infinite alternate;
 }
 
-@keyframes floatPic{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0px);}
-}
-
-/* Video Cards */
+/* Video cards */
 .video-card{
   width:100%;
   border-radius:18px;
   overflow:hidden;
-  background: rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.04);
   box-shadow:0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
   display:flex;
   align-items:center;
   justify-content:center;
   padding:4px;
   border:1px solid rgba(255,255,255,0.15);
-  animation: floatVid 10s ease-in-out infinite alternate;
 }
-
 .video-card video{
   border-radius:12px;
   width:100%;
@@ -137,47 +128,69 @@ body{
   object-fit:cover;
 }
 
-@keyframes floatVid{
-  0%{transform:translateY(0px) rotate(0deg);}
-  50%{transform:translateY(-5px) rotate(1deg);}
-  100%{transform:translateY(0px) rotate(0deg);}
-}
-
-/* Verse & Quote */
-.text-block{
+/* Text sections (verse, quote, RSVP) */
+.text-section{
+  font-family:'Poppins',sans-serif;
+  font-size:1.15rem;
+  color:#fff;
   max-width:360px;
-  margin:10px auto;
-  font-size:1.1rem;
-  line-height:1.5;
-  padding:14px 16px;
+  margin:12px auto;
+  padding:14px 18px;
   border-radius:18px;
-  background: rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+/* Venue details */
+.venue-details p{
+  margin:6px 0;
 }
 
 /* Countdown */
+.countdown-section{
+  margin:16px auto;
+  max-width:360px;
+  text-align:center;
+}
 .countdown{
   font-size:2rem;
   font-weight:600;
-  margin:12px auto;
-  padding:14px 16px;
+  margin-top:10px;
+  padding:14px 18px;
   border-radius:18px;
-  background: rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 8px 24px rgba(0,0,0,0.25);
-  width:fit-content;
+}
+.see-you{
+  margin-top:8px;
+  font-weight:600;
+}
+
+/* RSVP */
+.rsvp{
+  font-family:'Poppins',sans-serif;
+  font-size:1.15rem;
+  color:#fff;
+  max-width:360px;
+  margin:16px auto;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  line-height:1.6;
 }
 
 /* Footer */
 footer{
   margin-top:20px;
+  font-family:'Poppins',sans-serif;
   color:#fff;
-  font-size:14px;
+  font-size:0.9rem;
 }
-footer div{
-  line-height:1.6;
-}
+footer p{text-align:center; margin:2px 0;}
 
 /* Floating emojis */
 .floating-emoji{
@@ -191,7 +204,6 @@ footer div{
   border-radius:6px;
   padding:2px;
 }
-
 @keyframes floatEmoji{
   0%{transform:translateY(110vh) rotate(0deg);}
   100%{transform:translateY(-10vh) rotate(360deg);}
@@ -201,116 +213,95 @@ footer div{
 @media(max-width:600px){
   .hbb-text h1{font-size:2.2rem;}
   .subline{font-size:1rem;}
-  .text-block{font-size:1rem;width:95%;}
+  .text-section,.rsvp,.countdown{width:95%;}
 }
 </style>
 </head>
 <body>
-
 <div class="overlay"></div>
 <div id="emojiContainer"></div>
 
-<!-- Popup -->
-<div id="popupModal">
-  <div id="popup">
-    <h2>Welcome to Our Wedding</h2>
-    <div class="btn-row">
-      <button class="btn ok" id="okBtn">OK 🎉</button>
-      <button class="btn later" id="closeBtn">Close</button>
-    </div>
+<!-- Landing Page -->
+<div id="landingPage" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3),var(--accent4));background-size:400% 400%;animation:neonBG 20s linear infinite;backdrop-filter:blur(10px);z-index:9999;">
+  <h1 style="font-family:'Playfair Display', serif; font-size:3rem;color:#fff;margin-bottom:20px;text-align:center;">
+    Welcome To Rock & Julie
+  </h1>
+  <div style="display:flex;gap:20px;">
+    <button id="enterBtn" style="padding:12px 18px;font-size:1.1rem;font-weight:600;border-radius:12px;border:none;cursor:pointer;background:linear-gradient(90deg,#00f6ff,#6b00ff);color:#fff;">ENTER</button>
+    <button id="closeBtnLanding" style="padding:12px 18px;font-size:1.1rem;font-weight:600;border-radius:12px;border:none;cursor:pointer;background:rgba(255,255,255,0.08);color:#fff;">CLOSE</button>
   </div>
 </div>
 
-<div class="wrap">
+<div class="wrap" id="mainPage" style="display:none;">
   <!-- Heading -->
-  <div class="hbb-text">
-    <h1>Rockson Owusu & Juliet Osei<br><span>Are Getting Married & Invites You To Celebrate</span></h1>
-  </div>
-  <div class="subline">Join us for a day of love & joy</div>
+  <div class="hbb-text"><h1>Rockson & Juliet<br><span>Are Getting Married & Invites You To Celebrate</span></h1></div>
+  <div class="subline">Join Us For The Big Day</div>
 
   <!-- Pictures -->
   <section class="pictures">
-    <img src="p1.jpg" alt="Pic1">
-    <img src="p2.jpg" alt="Pic2">
-    <img src="p3.jpg" alt="Pic3">
-    <img src="p4.jpg" alt="Pic4">
-    <img src="p5.jpg" alt="Pic5">
+    <img src="p1.jpg" alt="p1">
+    <img src="p2.jpg" alt="p2">
+    <img src="p3.jpg" alt="p3">
+    <img src="p4.jpg" alt="p4">
+    <img src="p5.jpg" alt="p5">
     <!-- Venue placeholder -->
-    <img src="venue.jpg" alt="Venue">
+    <img src="venue.jpg" alt="Venue" style="border-radius:18px;width:96%;aspect-ratio:16/9;object-fit:cover;">
   </section>
 
   <!-- Venue Details -->
-  <div class="text-block">
+  <div class="text-section venue-details">
     <p><strong>Venue:</strong> Banivillas Event Center</p>
     <p><strong>Date:</strong> Saturday, December 20, 2025</p>
     <p><strong>Time:</strong> 10:00 AM</p>
+    <p><strong>Location:</strong> Tech – Kentinkrono</p>
   </div>
 
-  <!-- First Video -->
+  <!-- Videos -->
   <section class="videos">
-    <div class="video-card">
-      <video id="vid1" playsinline loop autoplay muted>
-        <source src="v1.mp4" type="video/mp4">
-      </video>
-    </div>
+    <div class="video-card"><video id="v1" muted loop autoplay><source src="v1.mp4" type="video/mp4"></video></div>
+    <div class="text-section">“Therefore what God has joined together, let no one separate.” — Mark 10:9</div>
+
+    <div class="video-card"><video id="v2" muted loop autoplay><source src="v2.mp4" type="video/mp4"></video></div>
+    <div class="text-section">“Two hearts, one love, one beautiful journey forever.”</div>
   </section>
 
-  <!-- Bible Verse -->
-  <div class="text-block">
-    “Therefore what God has joined together, let no one separate.” — Mark 10:9
-  </div>
-
-  <!-- Second Video -->
-  <section class="videos">
-    <div class="video-card">
-      <video id="vid2" playsinline loop autoplay muted>
-        <source src="v2.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <!-- Love Quote -->
-  <div class="text-block">
-    “Two hearts, one love, one beautiful journey forever.”
+  <!-- RSVP -->
+  <div class="rsvp">
+    0243483781<br>
+    0243212405<br>
+    0247378624
   </div>
 
   <!-- Countdown -->
-  <div class="countdown" id="countdown"></div>
-  <div class="subline">SEE YOU THERE 🫡</div>
+  <div class="countdown-section">
+    <div class="see-you">SEE YOU THERE 🫡</div>
+    <div id="countdown" class="countdown"></div>
+  </div>
 
-  <!-- Footer -->
   <footer>
-    <div>Made with 💛💙</div>
-    <div>NanaB.2025</div>
+    <p>Made with 💛</p>
+    <p>NanaB.2025</p>
   </footer>
 </div>
 
 <!-- Background music -->
-<audio id="bgAudio" src="mus.mp3" loop autoplay preload="auto"></audio>
+<audio id="bgAudio" src="mus.mp3" loop preload="auto"></audio>
 
 <script>
 (function(){
-  const okBtn = document.getElementById('okBtn');
-  const closeBtn = document.getElementById('closeBtn');
-  const popupModal = document.getElementById('popupModal');
+  const landingPage = document.getElementById('landingPage');
+  const enterBtn = document.getElementById('enterBtn');
+  const closeBtnLanding = document.getElementById('closeBtnLanding');
+  const mainPage = document.getElementById('mainPage');
   const bgAudio = document.getElementById('bgAudio');
-  const vid1 = document.getElementById('vid1');
-  const vid2 = document.getElementById('vid2');
+  const vids = [document.getElementById('v1'),document.getElementById('v2')];
 
-  okBtn.addEventListener('click',()=>{
-    popupModal.style.display='none';
-    vid1.play().catch(()=>{});
-    vid2.play().catch(()=>{});
-  });
-  closeBtn.addEventListener('click',()=>window.close());
-
-  // Floating emojis
-  const emojis = ['❤️','💛','💙','💍','🎉','💌','💫','🎈'];
+  const emojis = ['❤️','💛','💙','🎉','🎈','✨','💍','💑'];
   const container = document.getElementById('emojiContainer');
-  for(let i=0;i<15;i++){
+  for(let i=0;i<10;i++){
     const span = document.createElement('div');
     span.className='floating-emoji';
-    span.textContent=emojis[i%emojis.length];
+    span.textContent=emojis[i];
     span.style.left=Math.random()*90+'%';
     span.style.fontSize=(22+Math.random()*14)+'px';
     span.style.animationDuration=(10+Math.random()*8)+'s';
@@ -318,39 +309,61 @@ footer div{
     container.appendChild(span);
   }
 
-  // Video mute/unmute logic
-  const handleVideoAudio = (video)=>{
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          bgAudio.pause();
-          video.muted = false;
-        }else{
-          video.muted = true;
-          if(bgAudio.paused) bgAudio.play().catch(()=>{});
+  function fadeOutAudio(audio,duration=2000){
+    const stepTime=50;
+    const steps=duration/stepTime;
+    const volStep=audio.volume/steps;
+    let currentStep=0;
+    const fadeInterval=setInterval(()=>{
+      if(currentStep>=steps){
+        clearInterval(fadeInterval);
+        audio.pause();
+        audio.volume=1;
+      } else {
+        audio.volume=Math.max(0,audio.volume-volStep);
+        currentStep++;
+      }
+    },stepTime);
+  }
+
+  // Landing page
+  enterBtn.addEventListener('click',()=>{
+    landingPage.style.display='none';
+    mainPage.style.display='block';
+    bgAudio.volume=0;
+    bgAudio.play().then(()=>{
+      let vol=0;
+      const fadeInSteps=20;
+      const fadeInterval=setInterval(()=>{
+        if(vol>=1){
+          clearInterval(fadeInterval);
+          bgAudio.volume=1;
+        } else {
+          vol+=0.05;
+          bgAudio.volume=Math.min(vol,1);
         }
-      });
-    },{
-      threshold:0.5
+      },100);
     });
-    observer.observe(video);
-    video.addEventListener('mouseenter',()=>{
-      bgAudio.pause();
-      video.muted=false;
+  });
+  closeBtnLanding.addEventListener('click',()=>window.close());
+
+  // Video hover/unmute logic
+  vids.forEach(v=>{
+    v.addEventListener('mouseenter',()=>{
+      fadeOutAudio(bgAudio,2000);
+      v.muted=false;
     });
-    video.addEventListener('mouseleave',()=>{
-      video.muted=true;
-      if(bgAudio.paused) bgAudio.play().catch(()=>{});
+    v.addEventListener('mouseleave',()=>{
+      v.muted=true;
+      bgAudio.play().catch(()=>{});
     });
-  };
-  handleVideoAudio(vid1);
-  handleVideoAudio(vid2);
+  });
 
   // Countdown
-  function updateCountdown() {
-    const weddingDate = new Date("2025-12-20T10:00:00");
-    const now = new Date();
-    const diff = weddingDate - now;
+  function updateCountdown(){
+    const weddingDate=new Date("2025-12-20T10:00:00");
+    const now=new Date();
+    const diff=weddingDate-now;
     if(diff<=0){
       document.getElementById("countdown").innerHTML="Today is the day!";
       return;
@@ -364,9 +377,7 @@ footer div{
   }
   setInterval(updateCountdown,1000);
   updateCountdown();
-
 })();
 </script>
-
 </body>
 </html>
