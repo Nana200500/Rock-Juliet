@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rockson & Juliet Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent1:#00f6ff;
+  --accent2:#6b00ff;
+  --accent3:#ff3ec5;
+  --accent4:#ffd300;
+  --bg-speed:20s;
+  --max-width:980px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3),var(--accent4));
+  background-size:400% 400%;
+  animation:neonBG var(--bg-speed) linear infinite;
+  position:relative;
+}
+
+@keyframes neonBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  mix-blend-mode:overlay;
+  background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.12));
+  z-index:1;
+}
+
+.wrap{
+  max-width:var(--max-width);
+  width:94%;
+  margin:28px auto;
+  text-align:center;
+  position:relative;
+  z-index:3;
+}
+
+/* Heading */
+.hbb-text h1 {
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size:3rem;
+  color:#fff;
+  line-height:1.2;
+  text-align:center;
+  margin-bottom:8px;
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  animation: bounceIn 0.6s ease forwards;
+}
+
+@keyframes bounceIn{
+  0%{transform:scale(0.5);opacity:0;}
+  60%{transform:scale(1.1);opacity:1;}
+  80%{transform:scale(0.95);}
+  100%{transform:scale(1);}
+}
+
+.subline{
+  font-family:'Poppins',sans-serif;
+  font-size:1.2rem;
+  font-weight:600;
+  margin-bottom:18px;
+  color:#fff;
+}
+
+/* Pictures */
+.pictures,.videos{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:16px auto;
+  width:100%;
+  max-width:360px;
+  align-items:center;
+  justify-content:center;
+}
+
+.pictures img{
+  border-radius:18px;
+  display:block;
+  width:96%;
+  object-fit:cover;
+  padding:4px;
+  border:1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  animation: floatPic 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatPic{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-6px);}
+  100%{transform:translateY(0px);}
+}
+
+/* Video Cards */
+.video-card{
+  width:100%;
+  border-radius:18px;
+  overflow:hidden;
+  background: rgba(255,255,255,0.05);
+  box-shadow:0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px;
+  border:1px solid rgba(255,255,255,0.15);
+  animation: floatVid 10s ease-in-out infinite alternate;
+}
+
+.video-card video{
+  border-radius:12px;
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+}
+
+@keyframes floatVid{
+  0%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-5px) rotate(1deg);}
+  100%{transform:translateY(0px) rotate(0deg);}
+}
+
+/* Verse & Quote */
+.text-block{
+  max-width:360px;
+  margin:10px auto;
+  font-size:1.1rem;
+  line-height:1.5;
+  padding:14px 16px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+/* Countdown */
+.countdown{
+  font-size:2rem;
+  font-weight:600;
+  margin:12px auto;
+  padding:14px 16px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  width:fit-content;
+}
+
+/* Footer */
+footer{
+  margin-top:20px;
+  color:#fff;
+  font-size:14px;
+}
+footer div{
+  line-height:1.6;
+}
+
+/* Floating emojis */
+.floating-emoji{
+  position:fixed;
+  font-size:28px;
+  animation:floatEmoji 12s linear infinite;
+  opacity:0.85;
+  pointer-events:none;
+  z-index:0;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:6px;
+  padding:2px;
+}
+
+@keyframes floatEmoji{
+  0%{transform:translateY(110vh) rotate(0deg);}
+  100%{transform:translateY(-10vh) rotate(360deg);}
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .hbb-text h1{font-size:2.2rem;}
+  .subline{font-size:1rem;}
+  .text-block{font-size:1rem;width:95%;}
+}
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+<div id="emojiContainer"></div>
+
+<!-- Popup -->
+<div id="popupModal">
+  <div id="popup">
+    <h2>Welcome to Our Wedding</h2>
+    <div class="btn-row">
+      <button class="btn ok" id="okBtn">OK 🎉</button>
+      <button class="btn later" id="closeBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- Heading -->
+  <div class="hbb-text">
+    <h1>Rockson Owusu & Juliet Osei<br><span>Are Getting Married & Invites You To Celebrate</span></h1>
+  </div>
+  <div class="subline">Join us for a day of love & joy</div>
+
+  <!-- Pictures -->
+  <section class="pictures">
+    <img src="p1.jpg" alt="Pic1">
+    <img src="p2.jpg" alt="Pic2">
+    <img src="p3.jpg" alt="Pic3">
+    <img src="p4.jpg" alt="Pic4">
+    <img src="p5.jpg" alt="Pic5">
+    <!-- Venue placeholder -->
+    <img src="venue.jpg" alt="Venue">
+  </section>
+
+  <!-- Venue Details -->
+  <div class="text-block">
+    <p><strong>Venue:</strong> Banivillas Event Center</p>
+    <p><strong>Date:</strong> Saturday, December 20, 2025</p>
+    <p><strong>Time:</strong> 10:00 AM</p>
+  </div>
+
+  <!-- First Video -->
+  <section class="videos">
+    <div class="video-card">
+      <video id="vid1" playsinline loop autoplay muted>
+        <source src="v1.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- Bible Verse -->
+  <div class="text-block">
+    “Therefore what God has joined together, let no one separate.” — Mark 10:9
+  </div>
+
+  <!-- Second Video -->
+  <section class="videos">
+    <div class="video-card">
+      <video id="vid2" playsinline loop autoplay muted>
+        <source src="v2.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- Love Quote -->
+  <div class="text-block">
+    “Two hearts, one love, one beautiful journey forever.”
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown" id="countdown"></div>
+  <div class="subline">SEE YOU THERE 🫡</div>
+
+  <!-- Footer -->
+  <footer>
+    <div>Made with 💛💙</div>
+    <div>NanaB.2025</div>
+  </footer>
+</div>
+
+<!-- Background music -->
+<audio id="bgAudio" src="mus.mp3" loop autoplay preload="auto"></audio>
+
+<script>
+(function(){
+  const okBtn = document.getElementById('okBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const popupModal = document.getElementById('popupModal');
+  const bgAudio = document.getElementById('bgAudio');
+  const vid1 = document.getElementById('vid1');
+  const vid2 = document.getElementById('vid2');
+
+  okBtn.addEventListener('click',()=>{
+    popupModal.style.display='none';
+    vid1.play().catch(()=>{});
+    vid2.play().catch(()=>{});
+  });
+  closeBtn.addEventListener('click',()=>window.close());
+
+  // Floating emojis
+  const emojis = ['❤️','💛','💙','💍','🎉','💌','💫','🎈'];
+  const container = document.getElementById('emojiContainer');
+  for(let i=0;i<15;i++){
+    const span = document.createElement('div');
+    span.className='floating-emoji';
+    span.textContent=emojis[i%emojis.length];
+    span.style.left=Math.random()*90+'%';
+    span.style.fontSize=(22+Math.random()*14)+'px';
+    span.style.animationDuration=(10+Math.random()*8)+'s';
+    span.style.opacity=0.7+Math.random()*0.3;
+    container.appendChild(span);
+  }
+
+  // Video mute/unmute logic
+  const handleVideoAudio = (video)=>{
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          bgAudio.pause();
+          video.muted = false;
+        }else{
+          video.muted = true;
+          if(bgAudio.paused) bgAudio.play().catch(()=>{});
+        }
+      });
+    },{
+      threshold:0.5
+    });
+    observer.observe(video);
+    video.addEventListener('mouseenter',()=>{
+      bgAudio.pause();
+      video.muted=false;
+    });
+    video.addEventListener('mouseleave',()=>{
+      video.muted=true;
+      if(bgAudio.paused) bgAudio.play().catch(()=>{});
+    });
+  };
+  handleVideoAudio(vid1);
+  handleVideoAudio(vid2);
+
+  // Countdown
+  function updateCountdown() {
+    const weddingDate = new Date("2025-12-20T10:00:00");
+    const now = new Date();
+    const diff = weddingDate - now;
+    if(diff<=0){
+      document.getElementById("countdown").innerHTML="Today is the day!";
+      return;
+    }
+    const days=Math.floor(diff/(1000*60*60*24));
+    const hours=Math.floor((diff/(1000*60*60))%24);
+    const minutes=Math.floor((diff/(1000*60))%60);
+    const seconds=Math.floor((diff/1000)%60);
+    document.getElementById("countdown").innerHTML=
+      `${days} Days • ${hours} Hrs • ${minutes} Min • ${seconds} Sec`;
+  }
+  setInterval(updateCountdown,1000);
+  updateCountdown();
+
+})();
+</script>
+
+</body>
+</html>
